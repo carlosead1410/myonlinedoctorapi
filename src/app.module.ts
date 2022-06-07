@@ -4,6 +4,24 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { Client } from 'pg';
+
+
+// const client = new Client({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'ShortPaper2',
+//   password: '1234',
+//   port: 5432
+// });
+
+// client.connect();
+// client.query('SELECT * FROM doctores', (err, res)=>{
+//   console.log(err);
+//   console.log(res.rows)
+// });
+
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true}),
@@ -16,7 +34,7 @@ import { AppService } from './app.service';
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
       synchronize: true
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
