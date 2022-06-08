@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Especialidad } from '../entities/especialidad.entity';
+import { Especialidades } from '../entities/especialidad.entity';
 
 @Injectable()
 export class EspecialidadService {
-    constructor(@InjectRepository(Especialidad) private espRepo: Repository<Especialidad>){}
+    constructor(@InjectRepository(Especialidades) private espRepo: Repository<Especialidades>){}
     
     findAll(){
         this.espRepo.find();
