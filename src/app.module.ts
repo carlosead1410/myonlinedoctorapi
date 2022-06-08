@@ -5,6 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { Client } from 'pg';
+import { DoctorController } from './doctores/controllers/doctor.controller';
+import { DoctorModule } from './doctores/doctor.module';
+import { EspecialidadModule } from './especialidades/especialidad.module';
 
 
 // const client = new Client({
@@ -33,10 +36,14 @@ import { Client } from 'pg';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: true,
+      retryDelay: 3000,
+      retryAttempts: 10
     }),
+    DoctorModule,
+    EspecialidadModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, DoctorController],
   providers: [AppService],
 })
 export class AppModule {}
