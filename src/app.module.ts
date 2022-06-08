@@ -43,7 +43,7 @@ import { EspecialidadModule } from './especialidades/especialidad.module';
     DoctorModule,
     EspecialidadModule,
   ],
-  controllers: [AppController, DoctorController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
