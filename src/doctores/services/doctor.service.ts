@@ -1,18 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BaseService } from 'src/commons/service.commonts';
 import { Repository } from 'typeorm';
 import { Doctores } from '../entities/doctor.entity'; 
 
 @Injectable()
-export class DoctorService {
-    constructor(@InjectRepository(Doctores) private docRepo: Repository<Doctores>){}
+export class DoctorService extends BaseService<Doctores>  {
     
-    findAll(){
-        return this.docRepo.find();
+    
+    constructor(@InjectRepository(Doctores) private docRepo: Repository<Doctores>){
+        super();
     }
-    changeSex(name: string){
-        console.log(name);
-        let a =this.docRepo.findBy({p_nombre: name});
-        return a;
+    
+    getRepository(): Repository<Doctores> {
+        throw new Error('Method not implemented.');
     }
+    
+
+    
 }
