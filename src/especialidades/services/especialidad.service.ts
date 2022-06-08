@@ -8,7 +8,7 @@ export class EspecialidadService {
     constructor(@InjectRepository(Especialidades) private espRepo: Repository<Especialidades>){}
     
     findAll(){
-        this.espRepo.find();
+        return this.espRepo.find();
     }
 
     // findOne(id_especialidad:number){

@@ -1,4 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { EspecialidadService } from '../services/especialidad.service';
 
-@Controller('especialidad')
-export class EspecialidadController {}
+@Controller('api/especialidad')
+export class EspecialidadController {
+
+    constructor(private especialidadServices: EspecialidadService){}
+
+    @Get()
+    ObtenerEspecialidades(){
+        let a =  this.especialidadServices.findAll();
+        return a
+    }
+}
