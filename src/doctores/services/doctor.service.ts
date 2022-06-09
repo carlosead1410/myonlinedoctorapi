@@ -13,7 +13,7 @@ export class DoctorService extends BaseService<Doctores>  {
     }
     
     getRepository(): Repository<Doctores> {
-        throw new Error('Method not implemented.');
+        return this.docRepo;
     }
     
 
