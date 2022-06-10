@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { DoctorService } from '../services/doctor.service';
 
 @Controller('api/doctor')
@@ -10,8 +10,9 @@ export class DoctorController {
         return this.doctorServices.findAll();
     }
 
-    @Get('/masculinos/')
-    getMasculinos(@Query('name') name:string){
-        return this.doctorServices.changeSex(name);
+    @Get('prueba/:especialidadName')
+    Prueba(@Param('especialidadName') especialidadName: string ){
+        return this.doctorServices.findByEspeciality(especialidadName);
     }
 }
+
