@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { EspecialidadService } from '../services/especialidad.service';
 
 @Controller('api/especialidad')
@@ -10,5 +10,15 @@ export class EspecialidadController {
     ObtenerEspecialidades(){
         let a =  this.especialidadServices.findAll();
         return a
+    }
+
+    @Get('doctor')
+    buscarEspecialidad(@Query('nombre') nombre){
+        return this.especialidadServices.findOne(nombre)
+    }
+
+    @Get('buscar')
+    buscar(){
+        return this.especialidadServices.findOneDoc()
     }
 }

@@ -1,13 +1,6 @@
-import {
-    PrimaryGeneratedColumn,
-    Column, 
-    Entity,
-    ManyToMany,
-    JoinTable  
-} from 'typeorm';
+import {PrimaryGeneratedColumn, Column, Entity, ManyToMany} from 'typeorm';
 
-import { Especialidades } from '../../especialidades/entities/especialidad.entity';
-
+import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
 @Entity()
 export class Doctores{
     @PrimaryGeneratedColumn()
@@ -26,16 +19,5 @@ export class Doctores{
     foto: string;
 
     @ManyToMany(() => Especialidades, (especialidad) => especialidad.doctores)
-    @JoinTable({
-        name: 'd_e',
-        joinColumn: {
-            name: 'id_doctor',
-            referencedColumnName: 'id_doctor',
-        },
-        inverseJoinColumn: {
-            name: 'id_especialidad',
-            referencedColumnName: 'id_especialidad',
-        },
-    })
     especialidades: Especialidades[];
 }

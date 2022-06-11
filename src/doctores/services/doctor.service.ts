@@ -1,32 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Console } from 'console';
-import { Especialidades } from '../../especialidades/entities/especialidad.entity';
+import { BaseService } from 'src/commons/service.commonts';
 import { Repository } from 'typeorm';
 import { Doctores } from '../entities/doctor.entity'; 
+import { DoctorRepository } from '../repository/doctor.repository';
 
 @Injectable()
 export class DoctorService {
-    constructor(
-        @InjectRepository(Doctores) private docRepo: Repository<Doctores>,
-        @InjectRepository(Especialidades) private espRepo: Repository<Especialidades>
-    ){}
     
-    findAll(){
-        return this.docRepo.find();
+    constructor(private readonly docRepo: DoctorRepository){}
+
+    getAllDoctor(){
+        return this.docRepo.findAll();
     }
 
-    async findByEspeciality(especialidadName: string){
-        const doctors = await this.docRepo.find({
-            relations:['especialidades'],
-            where:{
-                especialidades:{
-                    nombre: especialidadName
-                }
-            }
-        });
-
-        return doctors;
+    getEspecialidad(nombre: string){
+        return this.docRepo.findPrueba(nombre);
     }
- 
+    
+    
+
+    
 }
