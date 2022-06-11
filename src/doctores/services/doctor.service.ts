@@ -3,18 +3,21 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { BaseService } from 'src/commons/service.commonts';
 import { Repository } from 'typeorm';
 import { Doctores } from '../entities/doctor.entity'; 
+import { DoctorRepository } from '../repository/doctor.repository';
 
 @Injectable()
-export class DoctorService extends BaseService<Doctores>  {
+export class DoctorService {
     
-    
-    constructor(@InjectRepository(Doctores) private docRepo: Repository<Doctores>){
-        super();
+    constructor(private readonly docRepo: DoctorRepository){}
+
+    getAllDoctor(){
+        return this.docRepo.findAll();
+    }
+
+    getEspecialidad(nombre: string){
+        return this.docRepo.findPrueba(nombre);
     }
     
-    getRepository(): Repository<Doctores> {
-        return this.docRepo;
-    }
     
 
     

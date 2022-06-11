@@ -8,6 +8,9 @@ import { Client } from 'pg';
 import { DoctorController } from './doctores/controllers/doctor.controller';
 import { DoctorModule } from './doctores/doctor.module';
 import { EspecialidadModule } from './especialidades/especialidad.module';
+import { DoctorRepository } from './doctores/repository/doctor.repository';
+import { Especialidades } from './especialidades/entities/especialidad.entity';
+import { TypeOrmExModule } from './database/typeorm-ex.module';
 
 
 // const client = new Client({

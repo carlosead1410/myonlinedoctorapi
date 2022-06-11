@@ -15,5 +15,13 @@ export class EspecialidadService {
     //     return this.espRepo.findOne()
     // }
 
-     
+    findOne(name: string) {
+        return this.espRepo.findOneBy({
+           nombre: name,
+        })
+    }
+
+    findOneDoc() {
+        return this.espRepo.createQueryBuilder("especialidades").leftJoinAndSelect("especialidades.doctores", "doctores").getMany()
+    } 
 }

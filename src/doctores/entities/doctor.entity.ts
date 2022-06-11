@@ -1,5 +1,6 @@
-import {PrimaryGeneratedColumn, Column, Entity} from 'typeorm';
+import {PrimaryGeneratedColumn, Column, Entity, ManyToMany} from 'typeorm';
 
+import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
 @Entity()
 export class Doctores{
     @PrimaryGeneratedColumn()
@@ -16,4 +17,7 @@ export class Doctores{
 
     @Column({type:'varchar', length: 500})
     foto: string;
+
+    @ManyToMany(() => Especialidades, (especialidad) => especialidad.doctores)
+    especialidades: Especialidades[];
 }
