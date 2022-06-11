@@ -1,6 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
-import { BaseController } from 'src/commons/controller.commons';
-import { BaseService } from 'src/commons/service.commonts';
+import { Controller, Get, HttpCode, Param, Query } from '@nestjs/common';
 import { Doctores } from '../entities/doctor.entity';
 import { DoctorService } from '../services/doctor.service';
 
@@ -14,9 +12,10 @@ export class DoctorController {
         return this.doctorServices.getAllDoctor();
     }
 
-    @Get('especialidad/:nombre')
-    buscarEspecialidad(@Param('nombre') nombre){
-        return this.doctorServices.getEspecialidad(nombre)
+    @Get('filter/especiality')
+    @HttpCode(200)
+    buscarEspecialidad(@Query('especialidad') especialidad:string){
+        return this.doctorServices.getEspecialidad(especialidad)
     }
 
    

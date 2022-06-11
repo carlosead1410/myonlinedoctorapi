@@ -1,6 +1,7 @@
-import { CustomRepository } from "src/database/typeorm-ex.decorator";
+import { CustomRepository } from "../../database/typeorm-ex.decorator";
 import { In, Like, Repository } from "typeorm";
 import { Doctores } from "../entities/doctor.entity";
+import { NotFoundException } from "@nestjs/common";
 
 @CustomRepository(Doctores)
 export class DoctorRepository extends Repository<Doctores>{
@@ -26,13 +27,17 @@ export class DoctorRepository extends Repository<Doctores>{
     }
 
 
-    async findPrueba(nombre: string): Promise<Doctores[]>{
+    async findByEspeciality(especialidad: string): Promise<Doctores[]>{
 
         const query = await this.createQueryBuilder("doctores")
                           .select("doctores.id_doctor")  
                           .leftJoin("doctores.especialidades", "especialidades")
-                          .where("especialidades.nombre = :nombre", {nombre: nombre}).getMany()
+                          .where("especialidades.nombre = :especialidad", {especialidad: especialidad}).getMany()
         
+
+        if (query.length == 0){
+            throw new NotFoundException(`No hay Doctores con la espacielidad de: ${especialidad}`)
+        }
         let doctores: number[] = []
         
         query.forEach( d => doctores.push(d.id_doctor))
@@ -41,21 +46,6 @@ export class DoctorRepository extends Repository<Doctores>{
                               .leftJoinAndSelect("doctores.especialidades", "especialidades")
                               .where("doctores.id_doctor IN  (:...doctors)", {doctors: doctores}).getMany()
 
-        // const subQuery = await this.createQueryBuilder("doctores")
-        //                      .subQuery()
-        //                      .select("d.id_doctor")
-        //                      .from(Doctores, "d")
-        //                      .leftJoin("d.especialidades", "especialidades")
-        //                      .where("especialidades.nombre = :nombre")
-        //                      .groupBy("d.id_doctor")   
-
-
-        // const docfilter = await this.createQueryBuilder("doctores")
-        //                       .from(Doctores, "d")
-        //                       .leftJoinAndSelect("d.especialidades", "especialidades")
-        //                       .where("d.id_doctor IN (" + subQuery.getQuery() + ")")
-        //                       .setParameter("nombre", {nombre: nombre})
-        //                       .getMany()
         return docfilter;
 
     }
