@@ -6,7 +6,7 @@ import {
     JoinTable  
 } from 'typeorm';
 
-import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
+import { Especialidades } from '../../especialidades/entities/especialidad.entity';
 
 @Entity()
 export class Doctores{

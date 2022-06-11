@@ -5,7 +5,7 @@ import {
     ManyToMany
 } from 'typeorm';
 
-import { Doctores } from 'src/doctores/entities/doctor.entity';
+import { Doctores } from '../../doctores/entities/doctor.entity';
 
 @Entity()
 export class Especialidades{

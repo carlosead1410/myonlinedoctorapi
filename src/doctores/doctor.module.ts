@@ -3,7 +3,7 @@ import { DoctorService } from './services/doctor.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Doctores } from './entities/doctor.entity';
 import { DoctorController } from './controllers/doctor.controller';
-import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
+import { Especialidades } from '../especialidades/entities/especialidad.entity';
 
 @Module({
   imports: [

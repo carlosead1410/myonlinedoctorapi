@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Console } from 'console';
-import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
+import { Especialidades } from '../../especialidades/entities/especialidad.entity';
 import { Repository } from 'typeorm';
 import { Doctores } from '../entities/doctor.entity'; 
 
@@ -21,17 +21,21 @@ export class DoctorService {
         // const especialidades = await this.espRepo.findBy({nombre: especialidadName});
         // console.log(especialidades);
         const doctors = await this.docRepo.find({
-            relations:['especialidades']
+            relations:['especialidades'],
+            where:{
+                especialidades:{
+                    nombre: especialidadName
+                }
+            }
         });
         
         
+
         return doctors;
 
 
     }
 
-    capitalize(s):string{
-        return s[0].toUpperCase() + s.slice(1);
-    }
+
     
 }
