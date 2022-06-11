@@ -17,9 +17,6 @@ export class DoctorService {
     }
 
     async findByEspeciality(especialidadName: string){
-        // console.log(especialidadName);
-        // const especialidades = await this.espRepo.findBy({nombre: especialidadName});
-        // console.log(especialidades);
         const doctors = await this.docRepo.find({
             relations:['especialidades'],
             where:{
@@ -28,14 +25,8 @@ export class DoctorService {
                 }
             }
         });
-        
-        
 
         return doctors;
-
-
     }
-
-
-    
+ 
 }
