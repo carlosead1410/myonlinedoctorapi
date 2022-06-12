@@ -1,7 +1,7 @@
 import { CustomRepository } from "../../database/typeorm-ex.decorator";
-import { In, Like, Repository } from "typeorm";
+import {  Repository } from "typeorm";
 import { Doctores } from "../entities/doctor.entity";
-import { NotFoundException } from "@nestjs/common";
+
 
 @CustomRepository(Doctores)
 export class DoctorRepository extends Repository<Doctores>{

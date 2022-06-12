@@ -1,31 +1,28 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DoctorModule } from './doctores/doctor.module';
 import { EspecialidadModule } from './especialidades/especialidad.module';
+import { ConfigModule } from './config/config.module';
+import { ConfigService } from './config/config.service';
+import { DatabaseModule } from './database/database.module';
 
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true}),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(<string>process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
-      autoLoadEntities: true,
-      synchronize: true,
-      retryDelay: 3000,
-      retryAttempts: 10
-    }),
+    DatabaseModule,
     DoctorModule,
     EspecialidadModule,
+    ConfigModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  static port: number | string;
+  constructor(private readonly _configService: ConfigService) {
+    AppModule.port = this._configService.get('PORT');
+  }
+}
