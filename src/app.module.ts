@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DoctorModule } from './doctores/doctor.module';
-import { EspecialidadModule } from './especialidades/especialidad.module';
+
 
 
 @Module({
@@ -23,7 +23,6 @@ import { EspecialidadModule } from './especialidades/especialidad.module';
       retryAttempts: 10
     }),
     DoctorModule,
-    EspecialidadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
