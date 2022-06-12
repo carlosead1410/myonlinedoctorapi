@@ -6,20 +6,6 @@ import { AppService } from './app.service';
 import { DoctorModule } from './doctores/doctor.module';
 import { EspecialidadModule } from './especialidades/especialidad.module';
 
-// const client = new Client({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'ShortPaper2',
-//   password: '1234',
-//   port: 5432
-// });
-
-// client.connect();
-// client.query('SELECT * FROM doctores', (err, res)=>{
-//   console.log(err);
-//   console.log(res.rows)
-// });
-
 
 @Module({
   imports: [

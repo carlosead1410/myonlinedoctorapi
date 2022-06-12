@@ -13,40 +13,18 @@ export class DoctorRepository extends Repository<Doctores>{
         return list_doctores;
     }
 
-    async findEspecialidad(nombre: string): Promise<Doctores[]>{
-        const query = this.createQueryBuilder("doctores")
-                          .leftJoinAndSelect("doctores.especialidades", "especialidades")
-                          .having("string_agg(especialidades.nombre, ', ') Like %:nombre", {nombre: nombre})
-                          .orHaving("string_agg(especialidades.nombre, ', ') Like %:nombre", {nombre: nombre})
-                          .orHaving("string_agg(especialidades.nombre, ', ') Like %:nombre", {nombre: nombre})
-                          .groupBy("doctores.id_doctor")
-        const doctores = await query.getMany();
-
-          
-        return doctores;
-    }
 
 
     async findByEspeciality(especialidad: string): Promise<Doctores[]>{
 
-        const query = await this.createQueryBuilder("doctores")
-                          .select("doctores.id_doctor")  
-                          .leftJoin("doctores.especialidades", "especialidades")
-                          .where("especialidades.nombre = :especialidad", {especialidad: especialidad}).getMany()
-        
+        const doctoresFiltrados =  await this.createQueryBuilder('doctores')
+                            .leftJoin('doctores.especialidades', 'especialidades')
+                            .leftJoinAndSelect('doctores.especialidades', 'EspecialidadesSelect')
+                            .where('especialidades.nombre = :especialidad', { especialidad: especialidad})
+                            .orderBy('doctores.id_doctor', 'ASC')
+                            .getMany();
 
-        if (query.length == 0){
-            throw new NotFoundException(`No hay Doctores con la espacielidad de: ${especialidad}`)
-        }
-        let doctores: number[] = []
-        
-        query.forEach( d => doctores.push(d.id_doctor))
-
-        const docfilter = this.createQueryBuilder("doctores")
-                              .leftJoinAndSelect("doctores.especialidades", "especialidades")
-                              .where("doctores.id_doctor IN  (:...doctors)", {doctors: doctores}).getMany()
-
-        return docfilter;
+        return doctoresFiltrados;
 
     }
 
