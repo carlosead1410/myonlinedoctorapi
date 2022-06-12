@@ -5,7 +5,7 @@ import { Doctores } from './entities/doctor.entity';
 import { DoctorController } from './controllers/doctor.controller';
 import { TypeOrmExModule } from '../database/typeorm-ex.module';
 import { DoctorRepository } from './repository/doctor.repository';
-import { Especialidades } from 'src/especialidades/entities/especialidad.entity';
+import { Especialidades } from '../especialidades/entities/especialidad.entity';
 
 @Module({
   imports: [
