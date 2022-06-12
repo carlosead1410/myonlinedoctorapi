@@ -1,5 +1,4 @@
-import { Controller, Get, HttpCode, Param, Query } from '@nestjs/common';
-import { Doctores } from '../entities/doctor.entity';
+import { Controller, Get, HttpCode,  Query } from '@nestjs/common';
 import { DoctorService } from '../services/doctor.service';
 
 @Controller('api/doctor')
