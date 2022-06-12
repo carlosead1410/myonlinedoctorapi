@@ -8,15 +8,15 @@ export class DoctorController {
     constructor(private readonly doctorServices: DoctorService){}
 
     @Get('all')
-    async buscarDoctores(){
+    buscarDoctores(){
 
-        return  await this.doctorServices.getAllDoctor();
+        return this.doctorServices.getAllDoctor();
     }
 
     @Get('filter/especiality')
     @HttpCode(200)
-    async buscarEspecialidad(@Query('especialidad') especialidad:string){
-        return await this.doctorServices.getEspecialidad(especialidad)
+    buscarEspecialidad(@Query('especialidad') especialidad:string){
+        return this.doctorServices.getEspecialidad(especialidad)
     }
 
    
