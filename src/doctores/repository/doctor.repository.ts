@@ -7,7 +7,7 @@ import { NotFoundException } from "@nestjs/common";
 export class DoctorRepository extends Repository<Doctores>{
 
     async findAll(): Promise<Doctores[]>{
-        let list_doctores = this.find({
+        let list_doctores = await this.find({
             relations: ["especialidades"],
         });
         return list_doctores;

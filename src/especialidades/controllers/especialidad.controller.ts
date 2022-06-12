@@ -12,13 +12,9 @@ export class EspecialidadController {
         return a
     }
 
-    @Get('doctor')
+    @Get('')
     buscarEspecialidad(@Query('nombre') nombre){
         return this.especialidadServices.findOne(nombre)
     }
 
-    @Get('buscar')
-    buscar(){
-        return this.especialidadServices.findOneDoc()
-    }
 }
