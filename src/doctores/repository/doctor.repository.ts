@@ -7,11 +7,6 @@ import { Doctores } from "../entities/doctor.entity";
 export class DoctorRepository extends Repository<Doctores>{
 
     async findAll(): Promise<Doctores[]>{
-        try {
-            
-        } catch (error) {
-            
-        }
         let list_doctores = await this.find({
             relations: ["especialidades"],
         });
