@@ -1,73 +1,69 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ShortPaper2 - NestJs
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Características del Repositrorio
+### Este es el repositorio del servicio elaborado en NestJs del segundo shortpaper de la Materia de Desarrollo del Software.
+Elaborado por: Subgrupo 1 - Code Rebels 
+- Carlos Arriaga
+- Christian Sanchez
+- Tadeo Vazquez
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+### Requerimientos
+- Debe tener instalado nodejs, nestjs y typescript en su computadora antes de ejecutar el proyecto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+### Aportes Significativos
 
-```bash
-$ npm install
-```
+|   Integrante               |    Commit|
+| :------------: | ------------ |
+|  Carlos Arriaga |[1. Modularizando el proyecto (Doctor y Especialidad)](https://github.com/carlosead1410/paper2api/commit/12e81683fdd4fe59e74e78cf7921439183684d32 "Modularizando el proyecto (Doctor y Especialidad)")</br>[2. Servicio traer doctores y especialidades](https://github.com/carlosead1410/paper2api/commit/d8d470674d66f9ccbd6808eed0770271d0e5e24e "Servicio traer doctores y especialidades")</br>[3. Colocando el metodod asincrono](https://github.com/carlosead1410/paper2api/commit/1d0b607b04fdf781721ec223682b520030ec672f "3. Colocando el metodod asincrono")</br>[4. Servicio Api](https://github.com/carlosead1410/paper2api/commit/1e54fcafcbf3f4424fe3a1548a1d9762dc559cae "4. Servicio Api")|
+|   Christian Sanchez |[5. Aplicando doctor generico](https://github.com/carlosead1410/paper2api/commit/fcca896f39e5c970f389269ca55bfcc5014b38c2 "2. Aplicando doctor generico")</br>[6. endpoint busqueda doctor por especialidad](https://github.com/carlosead1410/paper2api/commit/3d57650529cc79995ca5bfea3902674fad7cb953 "3. endpoint busqueda doctor por especialidad")</br>[7. creando modulo config](https://github.com/carlosead1410/paper2api/commit/8f2a2fe88d963d52b3d9fb9b0d1fca9390c95f36 "4. creando modulo config")|
+|   Tadeo Vazquez| Revisar repositorio de Dart|
 
-## Running the app
 
-```bash
-# development
-$ npm run start
+<hr>
 
-# watch mode
-$ npm run start:dev
+### Explicacion de los commits mas significativos
+Los commits no tienen un orden en especifico, por lo tanto es posible que vea como por ejemplo que el commit 5 se complementa con el commit 3. Ya que solo se estan enumerando para poder identificarlos.
+  
+  1. ` Modularizando el proyecto (Doctor y Especialidad)`
+En este commit se logro modularizar el proyecto con la final de cumplir el principio de separacion de responsabilidades (SoC), donde los modulos creados (Doctor y Especialidad) solo iban a cumplir la tarea para las cuales fueron diseñados. Este commit se complementa con el commit 7.
 
-# production mode
-$ npm run start:prod
-```
+  2. `Servicio traer doctores y especialidades`
+En este commit se logro aplicar el TypeORM con el patron repository para la busqueda de todos los doctores y todas las especialidades (Este commit se completa con el commit 5 y 6).
 
-## Test
+  3.  `Colocando el metodod asincrono`
+En este commit se hizo uson del patron async await para aplicar la programacion asincrona, en especial se uso al realizar la consulta a la base de datos para poder resolver la promesa.
 
-```bash
-# unit tests
-$ npm run test
+  4. `Servicio Api`
+Este commit complementa el commit 6 en donde se mejora el manejo del servicio para la busqueda de doctores por especialidad.
 
-# e2e tests
-$ npm run test:e2e
+  5. ` Aplicando doctor generico`  
+En este commit se creo una clase customRepository que hereda de la clase generica "Repository" esto es de gran utilidad ya que ayuda a reducir la cantidad de código que se necesita para lograr una tarea
 
-# test coverage
-$ npm run test:cov
-```
+  6. `endpoint busqueda doctor por especialidad`
+Este es el commit mas importante ya que es el servicio que logra filtrar la lista de doctores por su especialidad, fue aplicado mediante el uso de TypeORM y mejorado en el commit 4 para asi tener un codigo mas legible.
 
-## Support
+  7. `creando modulo config`
+En este commit se separa el appmodule con la conexion de la base de datos, aparte se encarga de validar si el servidor esta en produccion o en desarrollo para asi obtener los datos correspondientes del archivo ".env "
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+En caso de que se quiera descargar el repositorio y utilizarlo, usted debera de bajarse las dependencias de node con el siguiente comando:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+ `npm install --force`
 
-## License
+- Puede que al ejecutar el proyecto tenga problemas con ciertos paquetes que fueron utilizados en el proyecto, se recomienda instalar todos los paquetes que requiera el proyecto al ser ejecutado.
+Posible problema relacionado con el customRepository, solucion:
 
-Nest is [MIT licensed](LICENSE).
+`npm install @nestjs/typeorm@next --force`
+
+-  Crear un archivo ".env" en el directorio raiz el cual contendra los datos necesarios para la conexion a la base de datos, como por ejemplo: usuario, contraseña, puerto de la base de datos, nombre de la base de datos y puerto del servicio.
+
+Una vez realizado todo lo anterior, puede proceder a ejecutar el proyecto con el comando.
+
+`npm run start`
+
+
+
+### Observacion
+En la elaboracion del servicio de nestjs como en la vista elaborada en Flutter, participaron **TODOS** los integrantes del subgrupo, aportando ideas y posibles soluciones.
