@@ -18,7 +18,7 @@ Elaborado por: Subgrupo 1 - Code Rebels
 | :------------: | ------------ |
 |  Carlos Arriaga |[1. Modularizando el proyecto (Doctor y Especialidad)](https://github.com/carlosead1410/paper2api/commit/12e81683fdd4fe59e74e78cf7921439183684d32 "Modularizando el proyecto (Doctor y Especialidad)")</br>[2. Servicio traer doctores y especialidades](https://github.com/carlosead1410/paper2api/commit/d8d470674d66f9ccbd6808eed0770271d0e5e24e "Servicio traer doctores y especialidades")</br>[3. Colocando el metodod asincrono](https://github.com/carlosead1410/paper2api/commit/1d0b607b04fdf781721ec223682b520030ec672f "3. Colocando el metodod asincrono")</br>[4. Servicio Api](https://github.com/carlosead1410/paper2api/commit/1e54fcafcbf3f4424fe3a1548a1d9762dc559cae "4. Servicio Api")|
 |   Christian Sanchez |[5. Aplicando doctor generico](https://github.com/carlosead1410/paper2api/commit/fcca896f39e5c970f389269ca55bfcc5014b38c2 "2. Aplicando doctor generico")</br>[6. endpoint busqueda doctor por especialidad](https://github.com/carlosead1410/paper2api/commit/3d57650529cc79995ca5bfea3902674fad7cb953 "3. endpoint busqueda doctor por especialidad")</br>[7. creando modulo config](https://github.com/carlosead1410/paper2api/commit/8f2a2fe88d963d52b3d9fb9b0d1fca9390c95f36 "4. creando modulo config")|
-|   Tadeo Vazquez| Revisar repositorio de Dart|
+|   Tadeo Vazquez| [Revisar repositorio de Flutter](https://github.com/Teidue/paper2flutter)|
 
 
 <hr>
